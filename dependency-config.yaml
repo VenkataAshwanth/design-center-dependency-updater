@@ -1,0 +1,30 @@
+organizations:
+  # List of MuleSoft organizations to manage dependencies for
+  - org_id: << ORG_ID >>               # Organization ID
+    client_id: << CLIENT_ID Of Connected App >>     # Client ID for authentication
+    client_secret: << CLIENT_SECRET Of Connected App >> # Client Secret for authentication
+
+    # List of Design Center projects within this organization
+    projects:
+      - customer-sfdc-sapi:            # Project Name in Design Center
+          - customer-fragments         # Dependency to update in this project
+          - api-common-library         # Another dependency to update
+      - test-api:                      # Another Design Center project
+          - customer-fragments         # Dependency to update in this project
+      - customer-eapi-test:            # Design Center project example
+          - fhir-r4-us-core-patient-library  # Dependency 1
+          - customer-fragments              # Dependency 2
+      - customer-papi-test:            # Another Design Center project
+          - fhir-r4-us-core-patient-library  # Dependency 1
+          - customer-fragments              # Dependency 2
+
+  # Another organization block
+  - org_id: << ORG_ID >>               # Second Organization ID
+    client_id: << CLIENT_ID Of Connected App >>     # Client ID for authentication
+    client_secret: << CLIENT_SECRET Of Connected App >> # Client Secret for authentication
+
+    # Projects and their dependencies for this organization
+    projects:
+      - test-new-api:                  # Project Name in Design Center
+          - fhir-r4-us-core-patient-library  # Dependency 1
+          - lts-common-data-types            # Dependency 2
